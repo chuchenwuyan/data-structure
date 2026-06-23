@@ -51,4 +51,19 @@ Status InitDuCircularList(DuLinkList *L)
 // b->prior = c
 
 // 如果没有单独保存 b，就必须先利用 a->next 找到并处理 b，
-// 最后才能把 a->next 改为 c。
+// 最后才能把 a->next 改为 c
+
+// 删除：
+// 以 a、b、c 三个相邻结点为例，删除 b 结点
+//
+// 原结构：a ⇄ b ⇄ c
+// 删除后：a ⇄ c
+//
+// 需要修改：
+// a->next = c
+// c->prior = a
+//
+// 若 p 指向要删除的 b：
+p->prior->next = p->next;
+p->next->prior = p->prior;
+free(p);
