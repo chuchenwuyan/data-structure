@@ -2,7 +2,7 @@
 
 #define MAXSIZE 100
 
-teypedef struct
+typedef struct
 {
     int data[MAXSIZE];
     int length;
